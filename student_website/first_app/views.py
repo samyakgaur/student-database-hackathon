@@ -1,7 +1,7 @@
 from django.shortcuts import render
 # added by Samyak Gaur 
 from django.http import HttpResponse
-from first_app.models import Entrie
+from first_app.models import Entrie,Topic
 
 # Create your views here.
 # We will handle request and responses here
@@ -44,3 +44,8 @@ def index1(request):
     entries_display = Entrie.objects.order_by('topics')
     index1dict = {'entries_display':entries_display}
     return render(request,'first_app/index.html',context=index1dict)
+
+def report(request):
+    entries_display = Entrie.objects.filter(year=2)
+    index1dict = {'entries_display':entries_display}
+    return render(request,'first_app/index12.html',context=index1dict)

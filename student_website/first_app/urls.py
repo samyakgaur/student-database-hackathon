@@ -15,6 +15,7 @@ urlpatterns = [
     # adding the template url here 
     path('help',views.help),
     path('index1',views.index1),
+    path('index12',views.report),
 ]
 
 """
