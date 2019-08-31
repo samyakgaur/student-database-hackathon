@@ -28,7 +28,7 @@ class MarkInline(GenericTabularInline):
 
 
 class EntriesAdmin(admin.ModelAdmin):
-    list_filter = ('topics','department',)
+    list_filter = ('topics','department','year',)
     inlines = [
         TeamNameInline,
         MarkInline,
