@@ -13,6 +13,22 @@
 <body>
     <h1>{{ text_insert }}</h1>
     <br>
-    <img src=" {% static "images/samyakgaur.jpg" %}" alt="picture" height="250px" width="300px">
+    <!-- <img src=" {% static "images/samyakgaur.jpg" %}" alt="picture" height="250px" width="300px"> -->
+    <h1>These are your Entries </h1><br > 
+    {% if entries_display %}
+    <table>
+        <th>Site Name</th>
+        <th>Created By</th>
+        <!-- now insert a table row  -->
+        {% for acc in entries_display %}
+        <tr>
+            <td>{{ acc.title }}</td>
+            <td>{{ acc.name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p> no access record found</p>
+    {% endif %}
 </body>
 </html>
