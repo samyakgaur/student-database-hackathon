@@ -8,7 +8,7 @@
     using the include function 
     >  then added the url in urls.py file of first_app 
     >  then created the help function in the views.py file 
-    
+
 -->
 
 <!DOCTYPE html>
@@ -18,12 +18,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Help Page</title>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
 </head>
 <body>
     <!--We will now insert the key of dict passed in views.py 
     file of first_app
     -->
-    {{ help_insert }}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: rgb(50, 118, 147)!important;">
+            <a class="navbar-brand" href="http://127.0.0.1:8000/" style="color: rgb(247, 226, 76)">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                </li>
+                <li class="nav-item">
+
+                </li>
+                <li class="nav-item dropdown">
+                </li>
+
+              </ul>
+                <a href="http://127.0.0.1:8000/admin"><button class="btn btn-outline-success my-2 my-sm-0" style="color: rgb(243, 252, 226);">Login</button></a>
+            </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: rgb(109, 174, 204)!important;">
+            <a class="navbar-brand" href="http://127.0.0.1:8000/" style="color: rgb(255, 255, 255); font-size: 15px!important;">Welcome to the Student's Project Database</a>
+    </nav>
+    <div class="row">
+        <div class="col-sm-3 crd">
+                <div class="card" style="width: 18rem;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZhvGmVn-CP30096GGQDEzUIu6pQ1a6x-VDHh2w3DuMn4tXBxRYQ" class="card-img-top" alt="Web Dev">
+                        <div class="card-body">
+                          <h5 class="card-title">Web Development</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="http://127.0.0.1:8000/admin/first_app/entrie/?topics__id__exact=1" class="btn btn-primary bttn">View Projects</a>
+                        </div>
+                </div>
+        </div>
+        <div class="col-sm-3 crd">
+                <div class="card" style="width: 18rem;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOLq8CPVFEeWrfUxHu2Kg3L4iXhnF3JBOOM9cCMykyQSCHy68MgQ" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Machine Learning</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="http://127.0.0.1:8000/admin/first_app/entrie/?topics__id__exact=2" class="btn btn-primary bttn">View Projects</a>
+                        </div>
+                </div>
+        </div>
+        <div class="col-sm-3 crd">
+                <div class="card" style="width: 18rem;">
+                        <img src="data:image/png;base64,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" class="card-img-top" alt="DSA">
+                        <div class="card-body">
+                          <h5 class="card-title">DSA</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="http://127.0.0.1:8000/admin/first_app/entrie/?topics__id__exact=3" class="btn btn-primary bttn">View Projects</a>
+                        </div>
+                </div>
+        </div>
+        <div class="col-sm-3 crd">
+                <div class="card" style="width: 18rem;">
+                        <img src="https://image.flaticon.com/icons/png/512/1185/1185915.png" class="card-img-top" alt="IoT">
+                        <div class="card-body">
+                          <h5 class="card-title">IoT</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="http://127.0.0.1:8000/admin/first_app/entrie/?topics__id__exact=4" class="btn btn-primary bttn">View Projects</a>
+                        </div>
+                </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </body>
 </html>

@@ -25,5 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #registering the url here
     path('first_app/',include('first_app.urls')),
-    path('firstview/',views.index),
+    path('',views.index),
 ]

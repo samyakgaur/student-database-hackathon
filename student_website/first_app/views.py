@@ -17,7 +17,8 @@ input
 We can also pass a html here.
 """
 def index(request):
-    return HttpResponse("This is from first_app's views.py ")
+    helpdict = {'help_insert':' HELP PAGE'}
+    return render(request,'first_app/help.html',context=helpdict)
 
 # Now after creating this view we will map it to urls.py file
 
