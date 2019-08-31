@@ -11,19 +11,26 @@
     <link rel="stylesheet" href="{% static "css/main.css" %}">
 </head>
 <body>
-    <h1>{{ text_insert }}</h1>
+    <!-- <h1>{{ text_insert }}</h1> -->
     <br>
     <!-- <img src=" {% static "images/samyakgaur.jpg" %}" alt="picture" height="250px" width="300px"> -->
-    <h1>These are your Entries </h1><br > 
+    <h2>These are your Entries </h2><br > 
     {% if entries_display %}
     <table>
-        <th>Site Name</th>
+        <th>Topic</th>
         <th>Created By</th>
+        <th>Title</th>
+        <th>URL</th>
+        <th>Research Paper</th>
+
         <!-- now insert a table row  -->
         {% for acc in entries_display %}
         <tr>
-            <td>{{ acc.title }}</td>
+            <td>{{ acc.topics }}</td>
             <td>{{ acc.name }}</td>
+            <td>{{ acc.title }}</td>
+            <td><a href="{{ acc.url }}">{{ acc.url}}</td>
+            <td>{{ acc.research_paper }}</td>
         </tr>
         {% endfor %}
     </table>
