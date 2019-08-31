@@ -1,7 +1,7 @@
 from django.shortcuts import render
 # added by Samyak Gaur 
 from django.http import HttpResponse
-from first_app.models import Entries
+from first_app.models import Entrie
 
 # Create your views here.
 # We will handle request and responses here
@@ -40,6 +40,6 @@ This is called by urls.py file of our first_app which is actually
 called by include function in the urls.py file in the main project
 """
 def index1(request):
-    entries_display = Entries.objects.order_by('topics')
+    entries_display = Entrie.objects.order_by('topics')
     index1dict = {'entries_display':entries_display}
     return render(request,'first_app/index.html',context=index1dict)

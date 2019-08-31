@@ -63,7 +63,18 @@ class TeamName(models.Model):
     def __str__(self):
         return self.name        
 
-class Entries(models.Model):
+class Mark(models.Model):
+    category = models.CharField(max_length=200,default="Mark Category")
+    marks = models.IntegerField(null=True, default=0)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey("content_type", "object_id")
+
+    def __str__(self):
+        return self.category 
+
+
+class Entrie(models.Model):
     topics = models.ForeignKey(Topic,on_delete=models.PROTECT)
     name = models.CharField(max_length=100,default="Team Leader name Here")
     title = models.CharField(max_length=264, unique=True)
@@ -74,7 +85,6 @@ class Entries(models.Model):
     year = models.IntegerField(choices=YEARS, default=1)
     department = models.CharField(max_length=100,choices=DEPARTMENTS,default="Computer")
     research_paper = models.CharField(max_length=100,choices=PAPER,default="NO")
-    credits = models.IntegerField(null=True, default=0)
     file= models.FileField(upload_to=None,max_length=100,default="NULL")
 
     def __str__(self):
