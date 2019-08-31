@@ -40,8 +40,6 @@ This is called by urls.py file of our first_app which is actually
 called by include function in the urls.py file in the main project
 """
 def index1(request):
-    
-    
     entries_display = Entries.objects.order_by('topics')
     index1dict = {'entries_display':entries_display}
     return render(request,'first_app/index.html',context=index1dict)

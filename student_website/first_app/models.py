@@ -1,5 +1,7 @@
 from django.db import models
 from django import forms
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
 # Create your models here.
 # store your data models where we specify the relationship b/w data
 
@@ -52,12 +54,19 @@ class Topic(models.Model):
 
     def __str__(self):
         return self.topic
-        
+class Name(models.Model):
+    name = models.CharField(max_length=200,default="None")
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey("content_type", "object_id")
+
+    def __str__(self):
+        return self.name        
 
 class Entries(models.Model):
     topics = models.ForeignKey(Topic,on_delete=models.PROTECT)
     title = models.CharField(max_length=264, unique=True)
-    name = models.CharField(max_length=264,unique=True)
+    # name = models.CharField(max_length=264,unique=True)
     description = models.TextField(max_length=600, null=True, blank=True)
     url = models.URLField(unique=True)
     start_date = models.DateField()
@@ -70,3 +79,4 @@ class Entries(models.Model):
 
     def __str__(self):
         return self.title
+
