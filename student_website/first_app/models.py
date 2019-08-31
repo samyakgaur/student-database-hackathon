@@ -66,6 +66,7 @@ class Entries(models.Model):
     department = models.CharField(max_length=100,choices=DEPARTMENTS,default="Computer")
     research_paper = models.CharField(max_length=100,choices=PAPER,default="NO")
     credits = models.IntegerField(null=True, default=0)
+    file= models.FileField(upload_to=None,max_length=100,default="NULL")
 
     def __str__(self):
         return self.title

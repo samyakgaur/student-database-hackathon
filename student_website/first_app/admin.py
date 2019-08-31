@@ -6,6 +6,8 @@ from django.contrib import admin
 from first_app.models import Topic,Entries
 
 admin.site.site_header = 'Student Database'
+admin.site.site_title = "Student Database"
+
 admin.site.register(Topic)
 admin.site.register(Entries)
 
