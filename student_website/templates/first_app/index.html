@@ -7,36 +7,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Main Page</title>
-    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static "css/main1.css" %}">
+    <style>
+        .crd {
+            padding-left: 30px!important;
+            padding-top: 50px!important;
+        }
+
+        .bttn {
+            background-color: rgb(109, 174, 204)!important;
+            border-color: rgb(109, 174, 204)!important;
+
+        }
+    </style>
 </head>
 <body>
-    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: rgb(50, 118, 147)!important; height: 43px;">
+                <a class="navbar-brand" href="http://127.0.0.1:8000/" style="color: rgb(247, 226, 76)">Student Database</a>
+            
+    </nav>
     <!-- <h1>{{ text_insert }}</h1> -->
     <br>
     <!-- <img src=" {% static "images/samyakgaur.jpg" %}" alt="picture" height="250px" width="300px"> -->
-    <h2>These are your Entries </h2><br > 
-    {% if entries_display %}
-    <table>
-        <th>Topic</th>
-        <th>Created By</th>
-        <th>Title</th>
-        <th>URL</th>
-        <th>Research Paper</th>
+    <div style="padding-left: 20px;">
+        <h2>These are your Entries </h2><br > 
+        {% if entries_display %}
+        <table>
+            <th>Topic</th>
+            <th>Created By</th>
+            <th>Title</th>
+            <th>URL</th>
+            <th>Research Paper</th>
 
-        <!-- now insert a table row  -->
-        {% for acc in entries_display %}
-        <tr>
-            <td>{{ acc.topics }}</td>
-            <td>{{ acc.name }}</td>
-            <td>{{ acc.title }}</td>
-            <td><a href="{{ acc.url }}">{{ acc.url}}</td>
-            <td>{{ acc.research_paper }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    {% else %}
-    <p> no access record found</p>
-    {% endif %}
+            <!-- now insert a table row  -->
+            {% for acc in entries_display %}
+            <tr>
+                <td>{{ acc.topics }}</td>
+                <td>{{ acc.name }}</td>
+                <td>{{ acc.title }}</td>
+                <td><a href="{{ acc.url }}">{{ acc.url}}</td>
+                <td>{{ acc.research_paper }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p> no access record found</p>
+        {% endif %}
+    </div>
 </body>
 </html>
