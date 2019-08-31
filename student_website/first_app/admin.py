@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 # We regsiter our models here to use it with 127.0.0.8000/admin
 
-from first_app.models import Topic,Entries,Name
+from first_app.models import Topic,Entries,TeamName
 from django.contrib.contenttypes.admin import GenericTabularInline
 
 
@@ -15,12 +15,12 @@ admin.site.index_title='Student Database'
 """
 For dynamic users
 """
-class NameInline(GenericTabularInline):
-    model = Name
+class TeamNameInline(GenericTabularInline):
+    model = TeamName
 
 class EntriesAdmin(admin.ModelAdmin):
     inlines = [
-        NameInline,
+        TeamNameInline,
     ]
 ##############################################################
 
