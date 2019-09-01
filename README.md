@@ -1,4 +1,4 @@
-## **Student Project Database ** ##
+## ** Student Project Database ** ##
 
 - [x] deploy-site-url : It can be accessed using local host
 - [x] github : https://github.com/samyakgaur
@@ -40,16 +40,16 @@
 **USERS**
 - Superuser:      Username: samyakgaur
                   Password: @Samyak
-                  Has full access
+                  || Has full access
 - Student:        Username: student
                   Password: @Samyakgaur
-                  Can add projects but cant change topics or grade himself
+                  || Can add projects but cant change topics or grade himself
 - mentor:         Username: mentor
                   Password: @Samyakgaur
-                  mentor can change topics and grade the students project
+                  || mentor can change topics and grade the students project
 - teacher1:       Username: teacher1
                   Password: @Samyakgaur
-                  Can only see projects
+                  || Can only see projects
 - teacher2:       Username: teacher2
                   Password: @Samyakgaur
-                  Can only see projects
+                  || Can only see projects
