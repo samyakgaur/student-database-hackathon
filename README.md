@@ -1,4 +1,4 @@
-## ** Student Project Database ** ##
+## **Student Project Database** ##
 
 - [x] deploy-site-url : It can be accessed using local host
 - [x] github : https://github.com/samyakgaur
