@@ -2,9 +2,14 @@ from django.db import models
 from django import forms
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
+from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 # Create your models here.
 # store your data models where we specify the relationship b/w data
-
+user = get_user_model()
+def get_name(self):
+    username = user.objects(username__icontains=username)
+     
 """
 Models created by Samyak Gaur 
 
@@ -88,5 +93,8 @@ class Entrie(models.Model):
     file= models.FileField(upload_to=None,max_length=100,default="NULL")
 
     def __str__(self):
-        return self.title
+        if self.name == 'Yameen Ajani':
+            return self.title
+        # else:
+            # return self.title
 
