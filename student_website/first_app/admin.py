@@ -33,6 +33,10 @@ class EntriesAdmin(admin.ModelAdmin):
         TeamNameInline,
         MarkInline,
     ]
+    def get_queryset(self, request):
+        qs = super(EntriesAdmin, self).get_queryset(request)
+        return qs.filter(name=request.user)
+
 
 
 ##############################################################
