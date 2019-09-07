@@ -70,6 +70,7 @@ class Mark(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey("content_type", "object_id")
+    comments=models.CharField(max_length=200, default="none")
 
     def __str__(self):
         return self.category 
@@ -77,7 +78,7 @@ class Mark(models.Model):
 
 class Entrie(models.Model):
     topics = models.ForeignKey(Topic,on_delete=models.PROTECT)
-    name = models.CharField(max_length=100,default="Team Leader name Here")
+    name = models.CharField(max_length=100,default="Team leader name Here")
     title = models.CharField(max_length=264, unique=True)
     description = models.TextField(max_length=600, null=True, blank=True)
     url = models.URLField(unique=True)
@@ -86,7 +87,7 @@ class Entrie(models.Model):
     year = models.IntegerField(choices=YEARS, default=1)
     department = models.CharField(max_length=100,choices=DEPARTMENTS,default="Computer")
     research_paper = models.CharField(max_length=100,choices=PAPER,default="NO")
-    file= models.FileField(upload_to=None,max_length=100,default="NULL")
+    
     
     def __str__(self):
         return self.title
@@ -101,3 +102,4 @@ class File(models.Model):
 
     def __str__(self):
         return self.filetype
+
