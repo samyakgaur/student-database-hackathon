@@ -4,7 +4,7 @@ from django.contrib.auth.models import Group
 # Register your models here.
 # We regsiter our models here to use it with 127.0.0.8000/admin
 
-from first_app.models import Topic,Entrie,TeamName,Mark,File
+from first_app.models import Topic,Notice,Entrie,TeamName,Mark,File,Review
 from django.contrib.contenttypes.admin import GenericTabularInline
 
 admin.site.site_header = 'Student Database'
@@ -36,6 +36,14 @@ class FileInline(GenericTabularInline):
     extra = 0 
     min_num = 0 
 
+"""
+For Review
+"""
+class ReviewInline(GenericTabularInline):
+    model = Review
+    extra = 0 
+    min_num = 1
+    max_num = 1
 ##############################################################
 
 
@@ -45,6 +53,7 @@ class EntriesAdmin(admin.ModelAdmin):
         TeamNameInline,
         MarkInline,
         FileInline,
+        ReviewInline,
     ]
     def get_queryset(self, request):
         qs = super(EntriesAdmin, self).get_queryset(request)
@@ -69,6 +78,7 @@ image_img.allow_tags = True
 
 
 admin.site.register(Topic)
+admin.site.register(Notice)
 admin.site.register(Entrie,EntriesAdmin)
 
 """

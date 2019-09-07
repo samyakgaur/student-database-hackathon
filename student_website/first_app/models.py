@@ -62,7 +62,15 @@ class TeamName(models.Model):
     content_object = GenericForeignKey("content_type", "object_id")
 
     def __str__(self):
-        return self.name        
+        return self.name
+
+class Notice(models.Model):
+    notice_title = models.CharField(max_length=200)
+    teacher_name = models.CharField(max_length=300)
+    notice = models.TextField(max_length=1000)
+
+    def __str__(self):
+        return self.notice_title        
 
 class Mark(models.Model):
     category = models.CharField(max_length=200,default="Mark Category")
@@ -103,3 +111,11 @@ class File(models.Model):
     def __str__(self):
         return self.filetype
 
+class Review(models.Model):
+    comment = models.TextField(max_length=500, default="None", null=True)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey("content_type", "object_id")
+
+    def __str__(self):
+        return self.comment 
