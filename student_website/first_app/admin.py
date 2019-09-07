@@ -56,18 +56,16 @@ class EntriesAdmin(admin.ModelAdmin):
              return qs
     
     # to view images inline
-    def image_img(self):
-        if self.File.file:
-            return u'<img src ="%s"/>' % self.File.file.url
-        else:
-            return '(No file found)'
-    image_img.short_description = 'Thumb'
-    image_img.allow_tags = True
+def image_img(self):
+    if self.File.file:
+        return u'<img src ="%s"/>' % self.File.file.url
+    else:
+        return '(No file found)'
+image_img.short_description = 'Thumb'
+image_img.allow_tags = True
     
 
 ##############################################################
-
-
 
 
 admin.site.register(Topic)
