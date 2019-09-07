@@ -4,9 +4,8 @@ from django.contrib.auth.models import Group
 # Register your models here.
 # We regsiter our models here to use it with 127.0.0.8000/admin
 
-from first_app.models import Topic,Entrie,TeamName,Mark
+from first_app.models import Topic,Entrie,TeamName,Mark,File
 from django.contrib.contenttypes.admin import GenericTabularInline
-
 
 admin.site.site_header = 'Student Database'
 admin.site.site_title = 'Student Database'
@@ -18,12 +17,24 @@ For dynamic users
 """
 class TeamNameInline(GenericTabularInline):
     model = TeamName
+    extra = 0
+    min_num = 0
 
 """
 For dynamic credit
 """
 class MarkInline(GenericTabularInline):
     model = Mark
+    extra = 0
+    min_num = 1 
+
+"""
+For dynamic Files
+"""
+class FileInline(GenericTabularInline):
+    model = File
+    extra = 0 
+    min_num = 0 
 
 ##############################################################
 
@@ -33,6 +44,7 @@ class EntriesAdmin(admin.ModelAdmin):
     inlines = [
         TeamNameInline,
         MarkInline,
+        FileInline,
     ]
     def get_queryset(self, request):
         qs = super(EntriesAdmin, self).get_queryset(request)
@@ -42,6 +54,16 @@ class EntriesAdmin(admin.ModelAdmin):
             return qs.filter(name=request.user)
         else:
              return qs
+    
+    # to view images inline
+    def image_img(self):
+        if self.File.file:
+            return u'<img src ="%s"/>' % self.File.file.url
+        else:
+            return '(No file found)'
+    image_img.short_description = 'Thumb'
+    image_img.allow_tags = True
+    
 
 ##############################################################
 

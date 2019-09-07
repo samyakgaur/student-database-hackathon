@@ -20,10 +20,15 @@ from first_app import views
 # to map this with the urls.py file in first_app
 from django.conf.urls import include
 
+# for image url 
 
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     #registering the url here
     path('first_app/',include('first_app.urls')),
     path('',views.index),
 ]
+
+urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

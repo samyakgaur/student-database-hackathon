@@ -92,5 +92,12 @@ class Entrie(models.Model):
         return self.title
         
 
-             
+class File(models.Model):
+    filetype = models.CharField(max_length=200,default="File Type")
+    file = models.FileField(blank=True,null=True, default="Null")
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey("content_type", "object_id")
 
+    def __str__(self):
+        return self.filetype
