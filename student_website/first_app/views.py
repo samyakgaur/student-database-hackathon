@@ -18,7 +18,7 @@ We can also pass a html here.
 """
 def index(request):
     helpdict = {'help_insert':' HELP PAGE'}
-    return render(request,'first_app/test.html',context=helpdict)
+    return render(request,'first_app/home.html',context=helpdict)
 
 # Now after creating this view we will map it to urls.py file
 

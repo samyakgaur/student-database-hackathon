@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.models import Group
 
 # Register your models here.
 # We regsiter our models here to use it with 127.0.0.8000/admin
@@ -35,9 +36,12 @@ class EntriesAdmin(admin.ModelAdmin):
     ]
     def get_queryset(self, request):
         qs = super(EntriesAdmin, self).get_queryset(request)
-        return qs.filter(name=request.user)
-
-
+        username = request.user
+        user_in_group = Group.objects.get(name="students").user_set.all()
+        if username in user_in_group:
+            return qs.filter(name=request.user)
+        else:
+             return qs
 
 ##############################################################
 
