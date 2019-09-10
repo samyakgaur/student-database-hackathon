@@ -16,6 +16,7 @@
 - Students can upload files.
 - None of this uses online database.
 - Has dynamic user and grading system.
+- User specific data display
 
 **Screenshots**
 
